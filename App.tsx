@@ -53,7 +53,7 @@ function App() {
   });
 
   const StartAnimation = () => {
-    progressValue.value = withTiming(1.5, {duration: 2000});
+    // progressValue.value = withTiming(1.5, {duration: 2000});
     progressValue.value = withRepeat(
       withSequence(
         withTiming(1.5, {duration: 900}),
