@@ -37,11 +37,13 @@ import Animated, {
 // import React from 'react';
 // import React, {useEffect}
 import {ParamListBase, useNavigation} from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import SecondScreen from './SecondScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const {width, height} = Dimensions.get('window');
 
-const FirstScreen = (): JSX.Element => {
+const FirstScreen = ({navigation}): JSX.Element => {
   // const navigation = useNavigation();
   // const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   // };
@@ -84,10 +86,6 @@ const FirstScreen = (): JSX.Element => {
       strokeDashoffset: circumference / progressValue.value,
     };
   }, [progressValue.value]);
-
-  function navigate(arg0: string): void {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <View style={styles.background}>
@@ -142,14 +140,12 @@ const FirstScreen = (): JSX.Element => {
                 </Svg>
               </Animated.View>
             </View>
-            <TouchableOpacity
-            onPress={() => navigate('SecondScreen')}
-            >
+            <TouchableOpacity onPress={() => navigation.navigate('SecondScreen')}>
               <FontAwesomeIcon
-              style={styles.nextPageArrow}
-              icon={faCircleArrowRight}
-              size={40}
-            />
+                style={styles.nextPageArrow}
+                icon={faCircleArrowRight}
+                size={40}
+              />
             </TouchableOpacity>
           </View>
         </View>

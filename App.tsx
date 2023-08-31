@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import FirstScreen from './src/onbording Screens/firstScreen';
 import SecondScreen from './src/onbording Screens/SecondScreen';
 
@@ -25,7 +25,7 @@ const App = (): JSX.Element => {
           component={SecondScreen}
           options={{
             animation: 'slide_from_right',
-            headerShown: false,
+            // headerShown: false,
           }}
         />
       </Stack.Navigator>
