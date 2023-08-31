@@ -43,7 +43,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const {width, height} = Dimensions.get('window');
 
-const FirstScreen = ({navigation}): JSX.Element => {
+const FirstScreen = ({navigation}: any): JSX.Element => {
   // const navigation = useNavigation();
   // const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   // };
@@ -140,7 +140,8 @@ const FirstScreen = ({navigation}): JSX.Element => {
                 </Svg>
               </Animated.View>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('SecondScreen')}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SecondScreen')}>
               <FontAwesomeIcon
                 style={styles.nextPageArrow}
                 icon={faCircleArrowRight}
