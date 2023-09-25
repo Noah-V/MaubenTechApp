@@ -16,6 +16,7 @@ import {
   TextInput,
   View,
   Easing,
+  TouchableOpacity,
 } from 'react-native';
 import {Circle, G, Svg} from 'react-native-svg';
 import {
@@ -40,7 +41,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 const {width, height} = Dimensions.get('window');
 
-const SecondScreen = (): JSX.Element => {
+const SecondScreen = ({navigation}): JSX.Element => {
   // const navigation = useNavigation();
   // const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   // };
@@ -94,16 +95,17 @@ const SecondScreen = (): JSX.Element => {
       />
       <View style={styles.welcomeText}>
         <View style={styles.text}>
-          <Text style={styles.textOne}>Get Closer To Your Peeers</Text>
-          <Text style={styles.textTwo}>Online Like Never Before</Text>
+          <Text style={styles.textOne}>An app that makes</Text>
+          <Text style={styles.textTwo}>Studying, lectures</Text>
+          <Text style={styles.textThree}>interesting</Text>
         </View>
         <View style={styles.skipLinks}>
           <View>
             <Text style={styles.skip}>SKIP</Text>
           </View>
           <View style={styles.space}>
+            <View style={styles.inactivePageTwo} />
             <View style={styles.activePage} />
-            <View style={styles.inactivePageOne} />
             <View style={styles.inactivePageTwo} />
           </View>
           <View style={styles.goToNextPage}>
@@ -137,11 +139,13 @@ const SecondScreen = (): JSX.Element => {
                 </Svg>
               </Animated.View>
             </View>
-            <FontAwesomeIcon
-              style={styles.nextPageArrow}
-              icon={faCircleArrowRight}
-              size={40}
-            />
+           <TouchableOpacity onPress={() => navigation.navigate('ThirdScreen')}>
+              <FontAwesomeIcon
+                style={styles.nextPageArrow}
+                icon={faCircleArrowRight}
+                size={40}
+              />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -158,7 +162,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 2,
     flexDirection: 'column',
-    width: 415,
+    width: 450,
     height: 490,
     position: 'absolute',
   },
@@ -173,17 +177,23 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    paddingTop: 50,
+    paddingTop: 30,
   },
 
   textOne: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize: 25,
+      fontSize: 25,
   },
 
   textTwo: {
     color: 'black',
+    fontWeight: 'bold',
+    fontSize: 25,
+    },
+  
+    textThree: {
+       color: 'black',
     fontWeight: 'bold',
     fontSize: 25,
   },
